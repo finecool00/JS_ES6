@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //1. promise객체란? => es6내장객체
+    //참고 - 내장객체 promise 안에는 함수가 들어가며 그 안에는 success 콜백함수, fail 콜백함수가 들어감
+    let promise = new Promise(function( success, fail ) { 
+
+      setTimeout(() => {
+        //프로미스 입장에서 성공을 알리는 함수
+        //success('성공했어!');
+
+        //프로미스 입장에서 실패를 알리는 함수
+        fail(new Error('이거 에러야😈'))
+
+      }, 5000)
+      
+
+    });
+
+    //then절은 성공을 돌려받는 콜백함수를 정의함
+    //catch절은 에러를 돌려받을 콜백함수를 정의함
+    promise
+    .then((data) => {
+      console.log(data);
+    }).catch( (err) => {
+      console.log(err);
+    })
+
+
+
+  </script>
+
+</body>
+</html>

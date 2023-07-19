@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- HTML5에서 사용할 때는 type="module"을 반드시 적습니다. -->
+    <script type="module">
+
+        //가져오기 방식 1(./는 다른 파일을 의미...!?!)
+        import {name, age, getInfo, sum, add} from './index01.js';
+        //절대경로도 가능
+        //import {name, age, getInfo, sum, add} from 'http://127.0.0.1:5500/09module/index01.js';
+
+        console.log(name);
+        console.log(age);
+        add(10);
+        console.log(sum);
+        getInfo();
+
+        console.log('-------------------------------------------------');
+
+        //가져오기 방식 2(전체 한꺼번에 import !!)
+        import * as x from './index01.js';
+
+        console.log(x.name);
+        console.log(x.age);
+        console.log(x.sum);
+        x.getInfo();
+        x.add(10);
+
+        console.log('--------------------------------------------------');
+        
+        //가져오기 방식 3
+        import {name as n, age as a } from './index01.js';
+
+        console.log(n);
+        console.log(a);
+
+    </script>
+
+
+</body>
+</html>
